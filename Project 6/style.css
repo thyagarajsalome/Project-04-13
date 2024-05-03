@@ -1,0 +1,60 @@
+body {
+  margin: 0;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  transition: .4s;
+}
+
+.input {
+  visibility: hidden;
+}
+
+.label {
+  position: relative; /* Changed from absolute to relative */
+  width: 80px;
+  height: 40px;
+  background-color: lightgray;
+  border-radius: 20px;
+}
+
+.circle {
+  width: 34px;
+  background-color: white;
+  height: 34px;
+  border-radius: 50%;
+  top: 3px;
+  position: absolute;
+  left: 3px;
+  cursor: pointer;
+}
+
+/* Typo fixed: Changed .lable to .label */
+.input:checked + .label {
+  background-color: dodgerblue;
+}
+
+/* Typo fixed: Changed .lable to .label */
+.input:checked + .label .circle {
+  animation: toggleOn .4s linear forwards;
+}
+
+@keyframes toggleOn {
+  0% {
+    transform: translateX(0); /* Changed from translateX(40px) */
+  }
+  100% {
+    transform: translateX(46px); /* Added 6px to account for the circle's width */
+  }
+}
+
+/* You need to define toggleOff animation for consistency, although it's not used in your code */
+@keyframes toggleOff {
+  0% {
+    transform: translateX(46px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
